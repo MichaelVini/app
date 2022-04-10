@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <section class="profile">
+      <header></header>
       <div class="info-profile">
         <img alt="Imagem de Perfil" src="./assets/michael.jpeg" />
         <p>
@@ -102,6 +103,14 @@ ul li {
 .profile {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+}
+
+footer {
+  height: 40px;
+  align-items: center;
+  background-color: #0b5ed7;
+  color: white;
 }
 
 @media (min-width: 700px) {
