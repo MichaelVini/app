@@ -10,6 +10,7 @@
 </template>
 <script>
 import Item from "./Item.vue";
+
 export default {
   components: {
     Item,
@@ -20,6 +21,7 @@ export default {
   data() {
     return {
       showPilar: false,
+      data: null,
     };
   },
   methods: {

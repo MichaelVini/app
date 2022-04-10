@@ -45,10 +45,6 @@ export default {
   components: {
     GuideCard,
   },
-  props: {
-    title: String,
-    competencia: String,
-  },
   data: function () {
     return {
       showEvidence: false,

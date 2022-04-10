@@ -2,11 +2,15 @@
   <div id="app">
     <section class="profile">
       <div class="info-profile">
-        <img alt="Imagem de Perfil" src="./assets/profile.jpg" />
-        <p>Nome: <b>Gustavo</b></p>
+        <img alt="Imagem de Perfil" src="./assets/michael.jpeg" />
+        <p>
+          Nome: <b>{{ info.data.name }}</b>
+        </p>
         <p>Email: <b>gustavo@gmail.com</b></p>
+        <p>
+          Localização: <b>{{ info.data.location }}</b>
+        </p>
         <p>Link github: <b>github.com/Gustavo</b></p>
-        <p>Localização: <b>São José dos Campos - SP</b></p>
       </div>
       <div class="content">
         <PilarCard title="Tecnologia" />
@@ -19,6 +23,7 @@
 
 <script>
 import PilarCard from "./components/PilarCard.vue";
+import axios from "axios";
 
 export default {
   name: "App",
@@ -26,9 +31,16 @@ export default {
     PilarCard,
   },
   data: function () {
-    return {};
+    return {
+      info: null,
+      description: null,
+    };
   },
-  methods: {},
+  mounted() {
+    axios
+      .get("https://api.github.com/users/MichaelVini")
+      .then((response) => (this.info = response));
+  },
 };
 </script>
 
@@ -65,6 +77,7 @@ ul li {
 .info-profile p {
   text-align: initial;
   margin-top: 20px;
+  margin-left: 25px;
 }
 
 .general {
@@ -83,6 +96,7 @@ ul li {
   width: 300px;
   margin-left: 20px;
   margin: 0 auto;
+  border-radius: 50%;
 }
 
 .profile {
